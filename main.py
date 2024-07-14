@@ -30,7 +30,7 @@ def chat_completion_request(messages, model=GPT_MODEL):
 
 messages = []
 messages.append({"role": "system",
-                 "content": "Тебя зовут Ala-Too GPT. Когда нужно, проводи профоиентационные тесты основываясь на потребностях пользователя. Приоритетнее проводить тест Климова. Проведи тест задавая вопросы по одному. Затем дай ему итоги теста и на основе результатов советуй им программы обучение в Международном Университете Ала-Тоо. Твои сообщения должны быть предельно точными и короткими."})
+                 "content": "Тебя зовут Ala-Too GPT. Когда нужно, проводи профориентационные тесты, основываясь на потребностях пользователя. Приоритетнее проводить тест Климова. Проведи тест, задавая вопросы по одному. Затем дай ему итоги теста и на основе результатов советуй им программы обучения в Международном Университете Ала-Тоо. Твои сообщения должны быть предельно точными и короткими."})
 
 ################################################################################
 ### Step 11
@@ -64,14 +64,17 @@ def distances_from_embeddings(embeddings1, embeddings2, distance_metric='cosine'
 
 
 def create_context(
-        question, df, max_len=1800, size="small"
+        messages, df, max_len=1000, size="small"  # уменьшено максимальное количество токенов контекста
 ):
     """
     Create a context for a question by finding the most similar context from the dataframe
     """
 
-    # Get the embeddings for the question
-    q_embeddings = client.embeddings.create(input=[question], model='text-embedding-3-small').data[0].embedding
+    # Combine all messages into a single string
+    combined_messages = " ".join([message['content'] for message in messages if message['role'] == 'user'])
+
+    # Get the embeddings for the combined messages
+    q_embeddings = client.embeddings.create(input=combined_messages, model='text-embedding-3-small').data[0].embedding
 
     # Get the distances from the embeddings
     df['distances'] = distances_from_embeddings(q_embeddings, df['embeddings'].values.tolist(),
@@ -101,18 +104,20 @@ def answer_question(
         question,
         df,
         messages,
-        model="gpt-4o",
-        max_len=1800,
+        model=GPT_MODEL,
+        max_len=1000,  # уменьшено максимальное количество токенов контекста
         size="small",
         debug=False,
-        max_tokens=150,
+        max_tokens=150,  # уменьшено максимальное количество токенов для ответа
+        temperature=0.5,  # изменение параметра temperature для генерации более точных ответов
+        top_p=0.9,  # изменение параметра top_p для управления разнообразием ответа
         stop_sequence=None
 ):
     """
     Answer a question based on the most similar context from the dataframe texts
     """
     context = create_context(
-        question,
+        messages,
         df,
         max_len=max_len,
         size=size,
@@ -130,8 +135,8 @@ def answer_question(
             model=model,
             messages=messages_with_context,
             max_tokens=max_tokens,
-            temperature=0,
-            top_p=1,
+            temperature=temperature,
+            top_p=top_p,
             frequency_penalty=0,
             presence_penalty=0,
             stop=stop_sequence,
