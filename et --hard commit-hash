@@ -1,0 +1,30 @@
+[33mcd6a909[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m812d408[m HEAD@{1}: commit: add front
+[33mcd6a909[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m HEAD@{2}: reset: moving to HEAD~3
+[33m6553fee[m HEAD@{3}: reset: moving to HEAD~1
+[33m2abd1e3[m HEAD@{4}: reset: moving to HEAD~1
+[33m30b0859[m[33m ([m[1;31morigin/dev[m[33m)[m HEAD@{5}: reset: moving to HEAD~2
+[33m9d7aef6[m HEAD@{6}: commit: Remove secret from main.py
+[33m52ce4f3[m HEAD@{7}: reset: moving to HEAD~1
+[33ma414207[m HEAD@{8}: commit: add frontend
+[33m52ce4f3[m HEAD@{9}: reset: moving to HEAD~1
+[33mfc171e7[m HEAD@{10}: commit: add frontend
+[33m52ce4f3[m HEAD@{11}: commit: add frontend
+[33m30b0859[m[33m ([m[1;31morigin/dev[m[33m)[m HEAD@{12}: commit: ready version 1.0
+[33m2abd1e3[m HEAD@{13}: reset: moving to 2abd1e391a0e393fd7e4873eff1943aeeb306cba
+[33m698b79e[m HEAD@{14}: commit: ready version 1.0
+[33m2abd1e3[m HEAD@{15}: commit: update model
+[33m6553fee[m HEAD@{16}: commit: working test model 1.0
+[33m24de781[m HEAD@{17}: commit: add ready embeddings
+[33mf3d6edc[m HEAD@{18}: reset: moving to f3d6edc67e495ef8c7dbdc8377d1c93fe3f45450
+[33m9f61f57[m HEAD@{19}: commit: working embeddings
+[33mf3d6edc[m HEAD@{20}: commit: update
+[33mcd6a909[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m HEAD@{21}: reset: moving to cd6a90936fc3481c72eb21604a2fe014b1e43651
+[33m98a0fd8[m HEAD@{22}: commit: update
+[33ma398049[m HEAD@{23}: commit: update
+[33md8bddd5[m HEAD@{24}: commit: update
+[33mcd6a909[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m HEAD@{25}: commit: start
+[33m49944a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{26}: checkout: moving from main to dev
+[33m49944a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{27}: Branch: renamed refs/heads/dev to refs/heads/main
+[33m49944a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{29}: checkout: moving from main to dev
+[33m49944a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{30}: commit (initial): add gitignore
