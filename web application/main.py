@@ -1,4 +1,3 @@
-Иса Касымбек уулу, [10/21/2024 6:43 PM]
 import os
 from ast import literal_eval
 import numpy as np
@@ -108,7 +107,6 @@ messages.append({"role": "system",
 #
 #         # If the number of tokens in the current sentence is greater than the max number of
 
-Иса Касымбек уулу, [10/21/2024 6:43 PM]
 #         # tokens, go to the next sentence
 #         if token > max_tokens:
 #             continue
@@ -215,7 +213,6 @@ def create_context(
     # Combine all messages into a single string
     combined_messages = " ".join([message['content'] for message in messages if message['role'] == 'user'])
 
-Иса Касымбек уулу, [10/21/2024 6:43 PM]
 # Get the embeddings for the combined messages
     q_embeddings = client.embeddings.create(input=combined_messages, model='text-embedding-3-small').data[0].embedding
 
